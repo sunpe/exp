@@ -488,6 +488,11 @@ func (s *handleState) appendKey(key string) {
 	s.sep = s.h.attrSep()
 }
 
+func (s *handleState) appendNullKey() {
+	s.buf.WriteString(s.sep)
+	s.sep = s.h.attrSep()
+}
+
 func (s *handleState) appendString(str string) {
 	if s.h.json {
 		s.buf.WriteByte('"')
